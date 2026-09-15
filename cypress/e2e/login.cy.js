@@ -6,13 +6,15 @@ describe('login', () => {
 
   it('Login using valid data must login correctly', () => {
     // Act
-    cy.get('#username')
-      .click()
-      .type('julio.lima');
+    cy.fixture('credentials').then(credentials => {
+      cy.get('#username')
+        .click()
+        .type(credentials.valid.username);
 
-    cy.get('#senha')
-      .click()
-      .type('123456');
+      cy.get('#senha')
+        .click()
+        .type(credentials.valid.password);
+    })
 
     cy.contains('button','Entrar')
       .click();
@@ -24,13 +26,15 @@ describe('login', () => {
 
   it('Login using invalid data must show error message', () => {
     // Act
-    cy.get('#username')
-      .click()
-      .type('julio.lima');
+    cy.fixture('credentials').then(credentials => {
+      cy.get('#username')
+        .click()
+        .type(credentials.invalid.username);
 
-    cy.get('#senha')
-      .click()
-      .type('654321'); //incorrect password
+      cy.get('#senha')
+        .click()
+        .type(credentials.invalid.password);
+    })
 
     cy.contains('button', 'Entrar')
       .click();
