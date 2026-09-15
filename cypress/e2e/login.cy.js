@@ -1,8 +1,10 @@
 describe('login', () => {
-  it('Login using valid data must login correctly', () => {
-    // Arrange
+  // Arrange
+  beforeEach(() => {
     cy.visit('http://localhost:4000');
+  })
 
+  it('Login using valid data must login correctly', () => {
     // Act
     cy.get('#username')
       .click()
@@ -21,9 +23,6 @@ describe('login', () => {
   })
 
   it('Login using invalid data must show error message', () => {
-    // Arrange
-    cy.visit('http://localhost:4000');
-
     // Act
     cy.get('#username')
       .click()
