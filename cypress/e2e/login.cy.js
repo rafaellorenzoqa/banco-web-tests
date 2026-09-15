@@ -16,6 +16,7 @@ describe('login', () => {
       .click();
     
     // Assert
-    cy.contains('h4', 'Realizar Transferência').should('be.visible');
+    cy.contains('h4', 'Realizar Transferência')
+      .should('be.visible');
     })
 })
