@@ -1,7 +1,8 @@
 describe('login', () => {
+
   // Arrange
   beforeEach(() => {
-    cy.visit('http://localhost:4000');
+    cy.visit(Cypress.expose('URL'));
   })
 
   it('Login using valid data must login correctly', () => {
