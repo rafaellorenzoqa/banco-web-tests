@@ -2,7 +2,7 @@ describe('login', () => {
 
   // Arrange
   beforeEach(() => {
-    cy.visit(Cypress.expose('URL'));
+    cy.visit('/');
   })
 
   it('Login using valid data must login correctly', () => {
