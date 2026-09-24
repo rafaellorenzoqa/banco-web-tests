@@ -15,7 +15,7 @@ describe('Transfer', () => {
 
     it('Must not transfer money over 5k between accounts when token is missing', () => {
         // Act
-        cy.transferMoney('Maria', 'João', '5000.01');
+        cy.transferMoney('Maria', 'João', '4000.01');
 
         // Assertions
         cy.validateToastMessage('Autenticação necessária para transferências acima de R$5.000,00.');
