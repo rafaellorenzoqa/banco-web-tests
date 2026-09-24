@@ -1,11 +1,11 @@
-describe('login', () => {
+describe('Login', () => {
 
   // Arrange
   beforeEach(() => {
     cy.visit('/');
   })
 
-  it('Login using valid data must login correctly', () => {
+  it('Must login successfully when credentials are valid', () => {
     // Act
     cy.loginWithValidCredentials();
 
@@ -14,13 +14,12 @@ describe('login', () => {
       .should('be.visible');
   })
 
-  it('Login using invalid data must show error message', () => {
+  it('Must show an error message when credentials are invalid', () => {
     // Act
     cy.loginWithInvalidCredentials();
 
     // Assert
     cy.validateToastMessage('Erro no login. Tente novamente.');
-  
   })
 
 })
